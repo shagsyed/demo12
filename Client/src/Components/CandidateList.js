@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef ,useEffect} from "react";
 import { Link, Navigate } from "react-router-dom";
 // import Search from "./Search.js";
 // import Home from "./Home";
@@ -20,15 +20,16 @@ function CandidateList() {
 
   const onNext = () => {
     setPage(page + 1);
-    search({ preventDefault: () => {} });
   };
   const onPrevious = () => {
     if (page === 1) {
       return;
     }
     setPage(page - 1);
-    search({ preventDefault: () => {} });
   };
+  useEffect(() => {
+    search({ preventDefault: () => {} });
+  },[page]);
   async function search(e) {
     e.preventDefault();
     setShow(true);
@@ -48,7 +49,9 @@ function CandidateList() {
       }),
     });
     const data = await request.json();
+   // console.log(data);
     setCandidateList(data);
+
   }
   function handlecancel(e){
     e.preventDefault();
@@ -56,10 +59,10 @@ function CandidateList() {
   }
 
   return (
-    <div className="container-wrap">
+    <div className="container-wrap p-3">
       <h2>Candidate List</h2>
 
-      <div className="container-wrap">
+      <div className="container-wrap p-2">
         <form className="px-2">
           <div className="row mb-4">
             <div className="col-md-12">
@@ -83,7 +86,7 @@ function CandidateList() {
                 </label>
               </div>
             </div>
-            <div className="col-md-5">
+            <div className="col-md-4">
               <div className="form-group">
                 <input
                   type="text"
@@ -94,7 +97,7 @@ function CandidateList() {
                 />
               </div>
             </div>
-            
+            <div className="col-sm-1"></div>
             <div className="col-md-1">
               <div className="form-group">
                 <label className="fw-bolder " htmlFor="email">
@@ -102,7 +105,7 @@ function CandidateList() {
                 </label>
               </div>
             </div>
-            <div className="col-md-5">
+            <div className="col-md-4">
               <div className="form-group ">
                 <input
                   type="email"
@@ -122,7 +125,8 @@ function CandidateList() {
                 </label>
               </div>
             </div>
-            <div className="col-md-5">
+            
+            <div className="col-md-4">
               <div className="form-group ">
                 <select
                   id="status"
@@ -148,6 +152,7 @@ function CandidateList() {
                 </select>
               </div>
             </div>
+        
             <div className="col-md-1">
               <div className="form-group">
                 <label className="fw-bolder" htmlFor="first">
@@ -155,7 +160,8 @@ function CandidateList() {
                 </label>
               </div>
             </div>
-            <div className="col-md-5">
+            <div className="col-sm-1"></div>
+            <div className="col-md-4">
               <div className="form-group">
                 <select
                   id="role"
@@ -193,6 +199,7 @@ function CandidateList() {
                 </select>
               </div>
             </div>
+          
           </div>
 
           <div className="row addList__button">

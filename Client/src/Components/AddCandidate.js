@@ -23,16 +23,13 @@ const AddCandidate = () => {
     setExperience("");
     // setStatus("");
     navigate("/");
-
   };
 
   const handleSubmit = async (e) => {
     // e.preventDefault();
     if (!CandidateName || !Email || !Role || !Contact || !PAN || !Experience) {
       return toast.error("Please fill in all details")
-
     }
-    
 
     const candidate = {
       CandidateName,
@@ -58,30 +55,30 @@ const AddCandidate = () => {
         "PAN": PAN,
         "Experience": Experience,
         // "status" : status
-
       })
 
     })
 
     const data = await result.json();
     const msg=JSON.stringify(data);
-    console.log(data.status);
+    // console.log(data)
+
     if (result.status === 422) {
       return toast.error("Server Trashed");
     }else if (result.status === 500) {
       return toast.error(`Invalid Registration ${msg}`)
     }
     if(result.status === 200) {
-      return toast.success("Successfully Added the  candidate");
+      return toast.success("Successfully Added the candidate");
     }
 
     navigate('/');
   };
 
   return (
-    <div className="container-wrap px-3">
-    <h2 className="mb-4 ">Add Candidate</h2>
-    <form>
+    <div className="container-wrap p-3">
+    <h2 className="mb-4 px-2">Add Candidate</h2>
+    <form className="px-2">
       <div className="row mb-4">
         <div className="col-md-1">
           <div className="form-group">
@@ -90,7 +87,7 @@ const AddCandidate = () => {
             </label>
           </div>
         </div>
-        <div className="col-md-5">
+        <div className="col-md-4">
           <div className="form-group">
             <input
               type="text"
@@ -103,6 +100,7 @@ const AddCandidate = () => {
             />
           </div>
         </div>
+        <div className="col-sm-1"></div>
         <div className="col-md-1">
           <div className="form-group">
             <label className="fw-bolder" htmlFor="first">
@@ -110,7 +108,7 @@ const AddCandidate = () => {
             </label>
           </div>
         </div>
-        <div className="col-md-5">
+        <div className="col-md-4">
           <div className="form-group">
             <input
               type="email"
@@ -131,7 +129,7 @@ const AddCandidate = () => {
             </label>
           </div>
         </div>
-        <div className="col-md-5">
+        <div className="col-md-4">
           <div className="form-group">
             <input
               type="tel"
@@ -147,6 +145,7 @@ const AddCandidate = () => {
             />
           </div>
         </div>
+        <div className="col-sm-1"></div>
         <div className="col-md-1">
           <div className="form-group">
             <label className="fw-bolder" htmlFor="first">
@@ -154,7 +153,7 @@ const AddCandidate = () => {
             </label>
           </div>
         </div>
-        <div className="col-md-5">
+        <div className="col-md-4">
           <div className="form-group">
             <select
               id="select"
@@ -190,7 +189,6 @@ const AddCandidate = () => {
               <option value = "AES-CloudApps-AWS">AES-CloudApps-AWS</option>
               <option value = "AES-CloudApps-GCP">AES-CloudApps-GCP</option>
               <option value = "AES-Mobility-Others">AES-Mobility-Others</option>
-
             </select>
           </div>
         </div>
@@ -203,7 +201,7 @@ const AddCandidate = () => {
             </label>
           </div>
         </div>
-        <div className="col-md-5">
+        <div className="col-md-4">
           <div className="form-group">
             <input
               type="text"
@@ -214,10 +212,11 @@ const AddCandidate = () => {
               maxLength={10}
               onChange={(e) => setPan(e.target.value.toUpperCase())}
               required
-             // pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"
+              pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"
             />
           </div>
         </div>
+        <div className="col-sm-1"></div>
         <div className="col-md-1">
           <div className="form-group">
             <label className="fw-bolder" htmlFor="first">
@@ -225,7 +224,7 @@ const AddCandidate = () => {
             </label>
           </div>
         </div>
-        <div className="col-md-5">
+        <div className="col-md-4">
           <div className="form-group">
             <input
               type="number"
@@ -239,7 +238,7 @@ const AddCandidate = () => {
           </div>
         </div>
       </div>
-      
+    
       <div className="row">
         <div className="col-md-4 form-group mt-2 ">
           <button
@@ -264,4 +263,3 @@ const AddCandidate = () => {
 };
 
 export default AddCandidate;
-

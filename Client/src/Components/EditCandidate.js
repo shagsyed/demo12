@@ -71,9 +71,9 @@ const EditCandidate = () => {
   }, []);
  
   return (
-    <div className="container-wrap px-3">
-      <h2 className="mb-4 ">Edit Candidate</h2>
-      <form>
+    <div className="container-wrap p-3">
+      <h2 className="mb-4 px-2">Edit Candidate</h2>
+      <form className="px-2">
         <div className="row mb-4">
           <div className="col-md-1">
             <div className="form-group">
@@ -82,7 +82,7 @@ const EditCandidate = () => {
               </label>
             </div>
           </div>
-          <div className="col-md-5">
+          <div className="col-md-4">
             <div className="form-group">
               <input
                 type="text"
@@ -103,7 +103,7 @@ const EditCandidate = () => {
               </label>
             </div>
           </div>
-          <div className="col-md-5">
+          <div className="col-md-4">
             <div className="form-group">
               <input
                 type="text"
@@ -113,6 +113,7 @@ const EditCandidate = () => {
               />
             </div>
           </div>
+          <div className="col-sm-1"></div>
           <div className="col-md-1">
             <div className="form-group">
               <label className="fw-bolder" htmlFor="first">
@@ -120,7 +121,7 @@ const EditCandidate = () => {
               </label>
             </div>
           </div>
-          <div className="col-md-5">
+          <div className="col-md-4">
             <div className="form-group">
               <input
                 type="email"
@@ -144,7 +145,7 @@ const EditCandidate = () => {
               </label>
             </div>
           </div>
-          <div className="col-md-5">
+          <div className="col-md-4">
             <div className="form-group">
               <input
                 type="email"
@@ -156,6 +157,7 @@ const EditCandidate = () => {
               />
             </div>
           </div>
+          <div className="col-sm-1"></div>
           <div className="col-md-1">
             <div className="form-group">
               <label className="fw-bolder" htmlFor="first">
@@ -163,7 +165,7 @@ const EditCandidate = () => {
               </label>
             </div>
           </div>
-          <div className="col-md-5">
+          <div className="col-md-4">
             <div className="form-group">
               <select
                 id="select"
@@ -172,8 +174,8 @@ const EditCandidate = () => {
                 ref={Role}
                
               >
-                <option defaultValue="">Select Role</option>
-                <option value = "AES-DigitalFS-JavaMS">AES-DigitalFS-JavaMS</option>
+              <option defaultValue="">Select Role</option>
+              <option value = "AES-DigitalFS-JavaMS">AES-DigitalFS-JavaMS</option>
               <option value = "AES-DigitalFS-JavaFS">AES-DigitalFS-JavaFS</option>
               <option value = "AES-DigitalFS-DotnetFS">AES-DigitalFS-DotnetFS</option>
               <option value = "AES-FED-Angular">AES-FED-Angular</option>
@@ -212,7 +214,7 @@ const EditCandidate = () => {
               </label>
             </div>
           </div>
-          <div className="col-md-5">
+          <div className="col-md-4">
             <div className="form-group">
               <input
                 type="text"
@@ -224,6 +226,7 @@ const EditCandidate = () => {
               />
             </div>
           </div>
+          <div className="col-sm-1"></div>
           <div className="col-md-1">
             <div className="form-group">
               <label className="fw-bolder" htmlFor="first">
@@ -231,10 +234,11 @@ const EditCandidate = () => {
               </label>
             </div>
           </div>
-          <div className="col-md-5">
+          <div className="col-md-4">
             <div className="form-group">
               <input
                 type="number"
+                min = "0"
                 className="form-control"
                 placeholder="Enter Number of years"
                 ref={Experience}
